@@ -1,5 +1,7 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages';
 
+import { tabBarConfig } from './src/components/tabbar/tab-list';
+
 export default defineUniPages({
   pages: [],
   globalStyle: {
@@ -13,23 +15,5 @@ export default defineUniPages({
       '^wd-(.*)': 'wot-design-uni/components/wd-$1/wd-$1.vue',
     },
   },
-  tabBar: {
-    color: '#816f49',
-    selectedColor: '#942e21',
-    backgroundColor: '#fff',
-    list: [
-      {
-        pagePath: 'pages/home/index',
-        iconPath: './static/tab-icons/home.png',
-        selectedIconPath: './static/tab-icons/home-active.png',
-        text: '首页',
-      },
-      {
-        pagePath: 'pages/my/index',
-        iconPath: './static/tab-icons/my.png',
-        selectedIconPath: './static/tab-icons/my-active.png',
-        text: '我的',
-      },
-    ],
-  },
+  tabBar: tabBarConfig,
 });

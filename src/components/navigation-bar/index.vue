@@ -5,9 +5,9 @@ import { watch } from 'vue';
 import { ref, toRefs } from 'vue';
 
 interface IProps {
-  needBackIcon?: boolean;
+  showBack?: boolean;
   backIcon?: string;
-  navTitle?: string | null;
+  title?: string | null;
   occupied?: boolean;
   fontColor?: string;
   backgroundColor?: string;
@@ -19,12 +19,12 @@ interface IProps {
 const props = withDefaults(defineProps<IProps>(), {
   backIcon: 'thin-arrow-left',
   occupied: true,
-  needBackIcon: true,
+  showBack: true,
   scrollTop: 0,
   backgroundColor: '#fff',
 });
-const { occupied, navTitle, fontColor, backgroundColor, backIcon } = toRefs(props);
-const { navBarHeight, statusBarHeight } = useScreenInfo().value;
+const { occupied, title, fontColor, backgroundColor, backIcon } = toRefs(props);
+const { navBarHeight, statusBarHeight } = useScreenInfo();
 const top = ref(0);
 
 onPageScroll(({ scrollTop }) => {
@@ -62,7 +62,7 @@ const goBackPage = () => {
     <View class="left">
       <slot name="left">
         <div
-          :class="`nav_custom_bar_back ${needBackIcon ? '' : 'hidden'}`"
+          :class="`nav_custom_bar_back ${showBack ? '' : 'hidden'}`"
           :style="{
             padding: '0 24px 0 0',
             textShadow: fontColor === '#fff' && !occupied && top < 50 ? '0 0 2px #000' : 'none',
@@ -85,7 +85,7 @@ const goBackPage = () => {
         textShadow: fontColor === '#fff' && !occupied && top < 50 ? '0 0 2px #000' : 'none',
       }"
     >
-      {{ navTitle }}
+      {{ title }}
     </View>
     <View></View>
   </View>

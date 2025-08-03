@@ -5,14 +5,16 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "首页"
-      }
+      },
+      "layout": "tabbar"
     },
     {
       "path": "pages/my/index",
       "type": "page",
       "style": {
         "navigationBarTitleText": "我的"
-      }
+      },
+      "layout": "tabbar"
     }
   ],
   "globalStyle": {
@@ -27,20 +29,21 @@
     }
   },
   "tabBar": {
+    "custom": true,
     "color": "#816f49",
     "selectedColor": "#942e21",
     "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/home/index",
-        "iconPath": "./static/tab-icons/home.png",
-        "selectedIconPath": "./static/tab-icons/home-active.png",
+        "iconPath": "/static/tab-icons/home.png",
+        "selectedIconPath": "/static/tab-icons/home-active.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/my/index",
-        "iconPath": "./static/tab-icons/my.png",
-        "selectedIconPath": "./static/tab-icons/my-active.png",
+        "iconPath": "/static/tab-icons/my.png",
+        "selectedIconPath": "/static/tab-icons/my-active.png",
         "text": "我的"
       }
     ]

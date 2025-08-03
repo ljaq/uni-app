@@ -40,7 +40,7 @@ function useStorage<T = any>(key: string, options?: Options<T>): Ref<T> {
     },
     set: (val) => {
       actualValue.value = val;
-      uni.setStorage({ key, data: { [VALUE_KEY]: val, [TIME_KEY]: expire ? new Date().valueOf() : undefined } });
+      uni.setStorageSync(key, { [VALUE_KEY]: val, [TIME_KEY]: expire ? new Date().valueOf() : undefined });
     },
   });
 

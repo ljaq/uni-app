@@ -1,6 +1,7 @@
 <route lang="yaml">
 style:
   navigationBarTitleText: '我的'
+layout: 'tabbar'
 </route>
 
 <template>
