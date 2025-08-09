@@ -1,5 +1,6 @@
 <template>
   {{ tabStore.current }}
+  {{ route.fullPath }}
   <wd-tabbar bordered safe-area-inset-bottom placeholder fixed v-model="tabStore.current" @change="handleChange">
     <wd-tabbar-item
       v-for="(item, index) in tabList"
@@ -12,23 +13,24 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'hooks/useRouter';
 import { tabList } from './tab-list';
 import { onLoad } from '@dcloudio/uni-app';
 import { useTabStore } from 'stores/tab';
+import { useRoute, useRouter } from 'utils/router';
 
 const tabStore = useTabStore();
-const route = useRouter();
+const route = useRoute();
+const router = useRouter();
 
 const handleChange = (e: any) => {
-  uni.switchTab({
+  router.push({
     url: '/' + tabList[e.value].pagePath,
+    tabBar: true,
   });
 };
 
 onLoad(() => {
-  const { page } = route;
-  const index = tabList.findIndex((item) => item.pagePath === page);
+  const index = tabList.findIndex((item) => item.pagePath === route.path);
   tabStore.current = index !== -1 ? index : 0;
 });
 </script>

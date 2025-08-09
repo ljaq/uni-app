@@ -1,6 +1,14 @@
 {
   "pages": [
     {
+      "path": "pages/index/index",
+      "type": "home",
+      "style": {
+        "navigationBarTitleText": "index"
+      },
+      "layout": "default"
+    },
+    {
       "path": "pages/home/index",
       "type": "page",
       "style": {

@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { onLaunch } from '@dcloudio/uni-app';
+import { beforeEach } from 'utils/router';
 
-onLaunch(async () => {});
+onLaunch(() => {
+  beforeEach((to, from, next) => {
+    console.log('beforeEach', to, from);
+    if (to.includes('/pages/my/index')) {
+      next('/pages/index/index');
+    } else {
+      return true;
+    }
+  });
+});
 </script>
-<style lang="scss">
-:root,
-page {
-  --wot-color-theme: #ba4733;
-}
-</style>
+<style lang="scss"></style>
