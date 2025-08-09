@@ -45,8 +45,6 @@ export function beforeEach(guard: NavigationGuardWith) {
           }
         }
 
-        console.log('invokeRes', invokeRes);
-
         return invokeRes;
       },
     });

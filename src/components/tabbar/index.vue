@@ -1,6 +1,4 @@
 <template>
-  {{ tabStore.current }}
-  {{ route.fullPath }}
   <wd-tabbar bordered safe-area-inset-bottom placeholder fixed v-model="tabStore.current" @change="handleChange">
     <wd-tabbar-item
       v-for="(item, index) in tabList"
